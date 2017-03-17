@@ -28,8 +28,8 @@ A first ruleset for the Quickstart
 	
 	users = function(){
 	  ent:name
-	}
 
+	}
     __testing = { "queries": [ { "name": "hello", "args": [ "obj" ] },
                                { "name": "__testing" } ],
                   "events": [ { "domain": "echo", "type": "hello", "attrs": [ "id" ] },
@@ -43,9 +43,13 @@ A first ruleset for the Quickstart
 	pre {
 	  id = event:attr("id").defaultsTo("_0")
 	  name = name(id)
+	  visits = ent:name{[id,"visits"]}
 	}
     send_directive("say") with
       something = "Hello " + name
+	fired {
+	  ent:name{[id,"visits"]} := visits + 1
+	}
   }
 
   rule store_name {
