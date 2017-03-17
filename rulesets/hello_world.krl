@@ -16,6 +16,19 @@ A first ruleset for the Quickstart
       msg = "Hello " + obj;
       msg
     }
+	
+	name = function(id){
+	  all_users = users();
+	  nameObj = id => all_users{[id,"name"]}
+					| { "first": "HAL", "last": "9000" };
+	  first = nameObj{"first"};
+	  last = nameObj{"last"};
+	  first + " " + last
+	}
+	
+	users = function(){
+	  ent:name
+	}
 
     __testing = { "queries": [ { "name": "hello", "args": [ "obj" ] },
                                { "name": "__testing" } ],
@@ -29,9 +42,7 @@ A first ruleset for the Quickstart
     select when echo hello
 	pre {
 	  id = event:attr("id").defaultsTo("_0")
-	  first = ent:name{[id,"name","first"]}
-	  last = ent:name{[id,"name","last"]}
-	  name = first + " " + last
+	  name = name(id)
 	}
     send_directive("say") with
       something = "Hello " + name
