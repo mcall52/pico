@@ -11,7 +11,7 @@ ruleset echo {
 	
 	global {
 		__testing = { "events": [ {"domain": "echo", "type": "hello"},
-								  {"domain": "echo", "type": "message", attrs": [ "input" ] } ]
+								  {"domain": "echo", "type": "message", "attrs": [ "input" ] } ]
 					}
 	}
 
