@@ -10,8 +10,8 @@ ruleset echo {
 	}
 	
 	global {
-		__testing = { "events": [ {"domain": "echo", "type": "hello", "attrs": [ "input" ] }]
-						
+		__testing = { "events": [ {"domain": "echo", "type": "hello"},
+								  {"domain": "echo", "type": "message", attrs": [ "input" ] } ]
 					}
 	}
 
@@ -25,7 +25,7 @@ ruleset echo {
 	rule message {
 		select when echo message
 		pre {
-			input = event:attr("input")
+			input = event:attr("input").klog("input is ")
 		}
 		
 		send_directive("say") with	
