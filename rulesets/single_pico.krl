@@ -6,7 +6,13 @@ ruleset echo {
 		>>
 		author "Michael Call"
 		logging on
-		//shares ...
+		shares __testing
+	}
+	
+	global {
+		__testing = { "events": [ {"domain": "echo", "type": "hello", "attrs": [ "input" ] }]
+						
+					}
 	}
 
 	rule hello {
@@ -19,7 +25,7 @@ ruleset echo {
 	rule message {
 		select when echo message
 		pre {
-			input = input
+			input = event:attr("input")
 		}
 		
 		send_directive("say") with	
