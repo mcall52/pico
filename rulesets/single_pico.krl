@@ -19,7 +19,7 @@ ruleset echo {
 	rule message {
 		select when echo message
 		pre {
-			input 
+			input = input
 		}
 		
 		send_directive("say") with	
