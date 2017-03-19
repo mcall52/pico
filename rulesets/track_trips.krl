@@ -9,6 +9,12 @@ ruleset track_trips {
 		//shares ...
 	}
 	
+	global {
+		__testing = { "events": [ {"domain": "car", "type": "new_trip", "attrs": ["mileage"] } ]
+			
+					}
+	}
+	
 	rule process_trip {
 		select when car new_trip
 		pre {
