@@ -10,9 +10,7 @@ ruleset track_trips {
 	}
 	
 	global {
-		__testing = { "events": [ {"domain": "car", "type": "new_trip", "attrs": ["mileage"] } ]
-			
-					}
+		__testing = { "events": [ {"domain": "car", "type": "new_trip", "attrs": ["mileage"] } ] }
 	}
 	
 	rule process_trip {
