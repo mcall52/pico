@@ -6,13 +6,15 @@ ruleset app_section_collection {
 		>>
 		author "Michael Call"
 		logging on
-		//shares ...
+		shares __testing
 	}
 	
 	global {
 		nameFromID = function(section_id) {
 			"Section " + section_id + " Pico"
 		}
+		
+		__testing = { "events":  [ { "domain": "section", "type": "needed", "attrs": [ "section_id" ] } ] }
 	}
 	
 	rule section_needed {
