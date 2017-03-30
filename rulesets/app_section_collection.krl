@@ -14,7 +14,8 @@ ruleset app_section_collection {
 			"Section " + section_id + " Pico"
 		}
 		
-		__testing = { "events":  [ { "domain": "section", "type": "needed", "attrs": [ "section_id" ] } ] }
+		__testing = { "events":  [ { "domain": "section", "type": "needed", "attrs": [ "section_id" ] } ] 
+					}
 	}
 	
 	rule section_needed {
